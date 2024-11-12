@@ -7,5 +7,13 @@
 </head>
 <body>
     <%- include('./partials/nav') %> <!-- add nav bar WOO -->
+    <h1>Take a look at the Events we have done!</h1>
+    <ul>
+        <% gfuelEvents.forEach(event => { %>
+            <h1><%= event.event %></h1>
+            <h3><%= event.date %></h3>
+            <p><%= event.description %></p>
+        <% }) %>
+    </ul>
 </body>
 </html>
