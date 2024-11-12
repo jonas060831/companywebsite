@@ -6,14 +6,31 @@ app.use(express.static('public'));
 
 // DB Below ==============================================================================================================
 const staff = [
+  {
+    image: "https://i.pravatar.cc/150?img=02",
+    name: "Ian Walker",
+    jobTitle: "CEO",
+    email: "alicewalker@example.com",
+    phoneNumber: "567-890-1234",
+    bio: "Alice is the visionary CEO of the company. With over 15 years of leadership experience, she has successfully driven growth and innovation, always focusing on building a sustainable, customer-centric business."
+  },
     {
-      image: "https://i.pravatar.cc/150?img=05",
+      image: "https://i.pravatar.cc/150?img=50",
       name: "John Doe",
       jobTitle: "Software Engineer",
       email: "johndoe@example.com",
       phoneNumber: "123-456-7890",
       bio: "John is a passionate software engineer with 5 years of experience in full-stack development. He loves solving complex problems and is always eager to learn new technologies."
     },
+    {
+      image: "https://i.pravatar.cc/150?img=18",
+      name: "Peter Parker",
+      jobTitle: "Software Engineer",
+      email: "peterparker@example.com",
+      phoneNumber: "123-456-7190",
+      bio: "Peter is a passionate software engineer with 5 years of experience in full-stack development. He loves solving complex problems and is always eager to learn new technologies."
+    },
+    
     {
       image: "https://i.pravatar.cc/150?img=04",
       name: "Jane Smith",
@@ -37,14 +54,6 @@ const staff = [
       email: "michaellee@example.com",
       phoneNumber: "456-789-0123",
       bio: "Michael is an HR specialist who excels in recruitment and employee relations. He is passionate about fostering a positive work culture and helping teams grow."
-    },
-    {
-      image: "https://i.pravatar.cc/150?img=02",
-      name: "Ian Walker",
-      jobTitle: "CEO",
-      email: "alicewalker@example.com",
-      phoneNumber: "567-890-1234",
-      bio: "Alice is the visionary CEO of the company. With over 15 years of leadership experience, she has successfully driven growth and innovation, always focusing on building a sustainable, customer-centric business."
     }
   ]
   
@@ -94,6 +103,7 @@ const products = [
   Today, Gfuel is a household name, known for its vibrant flavors and the boundless energy it provides. And as for Ian Walker? He’s still gaming, still innovating, and still occasionally finding neon green paw prints around his house.
   `;
   
+
 
 
   const gfuelEvents = [
@@ -162,9 +172,21 @@ app.get(`/companyhistory`, (req, res) => {
     })
 })
 
+
 // staff page
 app.get(`/staff`, (req, res) => {
-    res.render(`staff.ejs`, {staff})
+
+  const groupedStaff = staff.reduce((accumulator, item) => {
+    const role = item.jobTitle
+
+    if(!accumulator[role]) accumulator[role] = []
+
+    accumulator[role].push(item)
+
+    return accumulator
+  }, {})
+  //create a variable where i can group them by roles
+  return res.render('staff.ejs', { groupedStaff })
 })
 
 // contact

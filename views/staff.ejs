@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="/CSS/app.css">
+    <link rel="stylesheet" href="/CSS/card.css">
 </head>
 <body>
     <%- include('./partials/nav') %> <!-- add nav bar WOO -->
+
+
     <h1>Meet Our Team!</h1>
-        <ul>
-            <% staff.forEach(person => { %>
-                <li>
-                    <img src="<%= person.image %>" />
-                    <strong><%= person.name %></strong>
-                    <ul> Role: <%= person.jobTitle %></ul>
-                    <ul> Email: <%= person.email %></ul>
-                    <ul> Number: <%= person.phoneNumber %></ul>
-                    <ul> Bio: <%= person.bio %></ul>
-                </li>
-               <% }) %>
-        </ul>
+
+
+    <ul>
+        <% for( const [title, people] of Object.entries(groupedStaff)) { %>
+        <h2><%= title%></h2>
+        <!-- jobTitle, email, phoneNumber, bio -->
+        <% people.forEach(person => { %>
+            <li>
+            <img src="<%= person.image %>" />
+            <h3><%=person.name %> </h3>
+            <div class="user_details">
+                <h4><%= person.email%></h4>
+                <h4><%= person.phoneNumber%></h4>
+                <h4><%= person.bio%></h4>
+                
+            </div>
+            </li>
+        <% }) %>
+    <% }%>  
+    </ul>
 </body>
 </html>
