@@ -73,9 +73,11 @@ const staff = [
   ];
 
 
+
+
 // home page aka products
 app.get(`/`, (req, res) => {
-    res.render(`home.ejs`)
+    res.render(`home.ejs`, {products})
 })
 
 // past work
@@ -98,6 +100,9 @@ app.get(`/contact`, (req, res) => {
     res.render(`contact.ejs`)
 })
 
+app.get(`/footer`, (req, res) => {
+
+})
 
 
 

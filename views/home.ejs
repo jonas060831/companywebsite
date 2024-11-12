@@ -7,5 +7,17 @@
 </head>
 <body>
     <%- include('./partials/nav') %> <!-- add nav bar WOO -->
+    <h1>Best Seller</h1>
+    <h1>Products</h1>
+        <ul>
+            <% products.forEach(product => { %>
+                <li>
+                    <strong><%= product.flavor %>: <%= product.price %></strong>
+                    <ul>Description: <%= product.description %></ul>
+                    <ul>Rating: <%= product.rating %>/5 stars</ul>
+                </li>
+            <% }) %>
+        </ul>
+    <%- include(`./partials/footer`) %> <!-- add footer -->
 </body>
 </html>
