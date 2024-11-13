@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <link rel="stylesheet" href="/CSS/app.css">
+    <link rel="stylesheet" href="/CSS/product_card.css">
+</head>
+<body>
+    <%- include('./partials/nav') %> <!-- add nav bar WOO -->
+
+    <br><br>
+    <div class="search_result_container">
+        <h1>Search Result: <%= filteredProducts.length %></h1>
+        <ul style="display: flex; flex-direction: column; gap: 2rem;">
+        <% filteredProducts.forEach( (product) => { %>
+            <a href="/products/<%= product.index%>" style="color: black;" >
+                <li>
+                    <img src="<%= product.imageUrl %>" />
+                    <div>
+                        Flavor:<%= product.flavor %> <br>
+                        Rating: <%= product.rating %>
+                    </div>
+                </li>
+            </a>
+        <% }) %>
+        </ul>
+    </div>
+
+
+    <br><br><br>
+    <%- include('./partials/footer') %>
+</body>
+</html>

@@ -160,6 +160,39 @@ nav a:hover{
     color: gray;
 }
 
+.search_result_container {
+    padding: 5rem;
+    
+}
+
+.search_result_container ul > a > li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: auto;
+    max-height: 120vh;
+    gap: 2rem;
+}
+
+.search_result_container ul >  a > li > img {
+    width: 100px;
+}
+
+.search_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.search_container > form > input[type=text] {
+    height: 30px;
+    border: 2px solid black;
+    padding-left: 0.5rem;
+    width: 300px;
+}
+
 /* desktop only */
 @media (min-width: 821px) and (max-width: 5000px) {
     .favorite_container {
