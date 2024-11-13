@@ -344,18 +344,15 @@ app.get('/search', (req, res) => {
   //i want to implement a search query
   // { min_price, max_price, flavor }  
   //im thinking of using a radio button
-  //
-  //that once the user submits the form it should reflect the new search values
-
+  //once the user submits the form it should reflect the new search values
   //return the product that has the values using filter
-
   const filteredProducts = products.filter( (product, index) => {
     //use a ternary to return true if that query exist
     //make sure to make the prouct.flavor.toLowerCase() when comparing to the query
     //https://www.w3schools.com/jsref/jsref_includes.asp string includes
     const isFlavorMet = queryFlavor ? product.flavor.toLowerCase().includes(queryFlavor) : true
     //TODO: add min and max value from the searchInput
-    
+
     //also add the index
     product['index'] = index
     return isFlavorMet
