@@ -10,9 +10,9 @@ const staff = [
     image: "https://i.pravatar.cc/150?img=02",
     name: "Ian Walker",
     jobTitle: "CEO",
-    email: "alicewalker@example.com",
+    email: "Ianwalker@example.com",
     phoneNumber: "567-890-1234",
-    bio: "Alice is the visionaryd CEO of the company. With over 15 years of leadership experience, she has successfully driven growth and innovation, always focusing on building a sustainable, customer-centric business."
+    bio: "Ian is the visionaryd CEO of the company. With over 15 years of leadership experience, he has successfully driven growth and innovation, always focusing on building a sustainable, customer-centric business."
   },
     {
       image: "https://i.pravatar.cc/150?img=50",
@@ -45,7 +45,7 @@ const staff = [
       jobTitle: "UX UI Designer",
       email: "emilyj@example.com",
       phoneNumber: "345-678-9012",
-      bio: "Emily is a creative UX/UI designer who focuses on user-centric design. She believes in creating intuitive and visually appealing interfaces that enhance user experience."
+      bio: "Andrew is a creative UX/UI designer who focuses on user-centric design. He believes in creating intuitive and visually appealing interfaces that enhance user experience."
     },
     {
       image: "https://i.pravatar.cc/150?img=01",
@@ -53,7 +53,7 @@ const staff = [
       jobTitle: "HR Specialist",
       email: "michaellee@example.com",
       phoneNumber: "456-789-0123",
-      bio: "Michael is an HR specialist who excels in recruitment and employee relations. He is passionate about fostering a positive work culture and helping teams grow."
+      bio: "Alice is an HR specialist who excels in recruitment and employee relations. She is passionate about fostering a positive work culture and helping teams grow."
     }
   ]
   
