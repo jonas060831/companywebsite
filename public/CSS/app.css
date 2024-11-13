@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Slackey&display=swap');
 /* body { */
     /* background: url("/src/image (2).png"); */
 /* } */
@@ -24,3 +25,54 @@ details
 image peter parker
 detials
 */
+
+:root {
+    --primary-color : #ffd490;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_container {
+    height: 5rem;
+    background-color: var(--primary-color);
+    width: 100vw;
+    padding: 0rem 1rem;
+}
+nav {
+    font-family: Arial;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    max-width: 900px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:link, a:visited, a:active {
+    color: black;
+}
+
+
+.history_text {
+    line-height: 3rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0px auto;
+    margin-top: 2rem;
+    padding: 0rem 1rem 0rem 1rem;
+}
+.history_text::first-letter {
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: 'Slackey';
+}

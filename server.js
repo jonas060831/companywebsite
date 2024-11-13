@@ -12,7 +12,7 @@ const staff = [
     jobTitle: "CEO",
     email: "alicewalker@example.com",
     phoneNumber: "567-890-1234",
-    bio: "Alice is the visionary CEO of the company. With over 15 years of leadership experience, she has successfully driven growth and innovation, always focusing on building a sustainable, customer-centric business."
+    bio: "Alice is the visionaryd CEO of the company. With over 15 years of leadership experience, she has successfully driven growth and innovation, always focusing on building a sustainable, customer-centric business."
   },
     {
       image: "https://i.pravatar.cc/150?img=50",
