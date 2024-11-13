@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GFUEL</title>
     <link rel="stylesheet" href="/CSS/app.css">
+    <link rel="stylesheet" href="/CSS/product_card.css">
 </head>
 <body>
     <%- include('./partials/nav') %> <!-- add nav bar -->
     
     <%- include('./partials/favorite', {newFavorite}) %>
 
+    <%- include('./partials/search', {products}) %>
 
-    <h1>Products</h1>
-        <ul>
-            <% products.forEach(product => { %>
-                <li>
-                    <img src="<%= product.imageUrl%>" alt="" width="300" height="auto"/>
-                    <strong><%= product.flavor %>: <%= product.price %></strong>
-                    <ul>Description: <%= product.description %></ul>
-                    <ul>Rating: <%= product.rating %>/5 stars</ul>
-                </li>
+
+    <h1 style="font-family: Slackey; margin-left: 2rem;">Products</h1>
+    
+    <div style="width: 90%; margin: 0px auto;">
+        <ul class="product_ul_container">
+            <% products.forEach((product, index) => { %>
+                <%- include('./partials/productCard', { product, index }) %>
             <% }) %>
         </ul>
+    </div>
+
     <%- include('./partials/footer') %>
 </body>
 </html>

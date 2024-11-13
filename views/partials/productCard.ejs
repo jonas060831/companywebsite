@@ -1,0 +1,14 @@
+<div class="product_card_container">
+    <a href='products/<%= index%>'>
+        <img
+         src="<%= product.imageUrl%>"
+         alt=""
+         width="60%"
+         height="auto"
+         />
+         <br>
+        <strong style="color: var(--link-hover-color); font-family: Rammetto One; font-size: smaller;"><%= product.flavor %>: <%= product.price %></strong>
+        <ul>Description: <%= product.description %></ul>
+        <ul>Rating: <%= product.rating %>/5 stars</ul>
+    </a>
+</div>

@@ -155,6 +155,7 @@ const products = [
     rating: 5.00 // Out of 5 stars
   },
   {
+    imageUrl: '/src/products/tropical rain.png',
     name: "GFuel Energy Formula",
     flavor: "Tropical Rain",
     description: "A mix of tropical fruits like kiwi, pineapple, and berry flavors for a refreshing and exotic taste experience.",
@@ -245,6 +246,25 @@ app.get(`/`, (req, res) => {
     res.render(`home.ejs`, {products , socials, newFavorite})
 })
 
+app.get(`/products/:productIndex`, (req, res) => {
+
+  //get the value of the params
+  const { productIndex  } = req.params
+
+  //query for a matching index
+  const product = products.find( (product, index) => index === parseInt(productIndex))
+
+  // console.log(product)
+
+  //if no match show a product not found page
+  if(product === undefined) return res.render("productnotfound.ejs", { socials })
+
+  
+
+  return res.render("showProduct.ejs", { product, socials})
+})
+
+
 // past work
 app.get(`/pastwork`, (req, res) => {
     res.render(`pastwork.ejs`, {
@@ -317,7 +337,15 @@ app.get(`/contact`, (req, res) => {
 })
 
 
-
+//search query
+app.get('/search', (req, res) => {
+  
+  //i want to implement a search query
+  // { min_price, max_price, flavor }  
+  //im thinking of using a radio button
+  //
+  //that once the user submits the form it should reflect the new search values
+})
 
 
 
