@@ -148,18 +148,29 @@ const products = [
         description: "A patriotic celebration with fireworks, BBQs, and live performances. Gfuel sponsored the event with themed drinks and a giant Gfuel fireworks display to cap off the night."
     }
 ];
+
+const socials = [
+  { "domain": "instagram", "url": "https://www.instagram.com/gfuelenergy/" },
+  { "domain": "twitter", "url":"https://twitter.com/GFuelEnergy" },
+  { "domain": "facebook", "url": "https://www.facebook.com/GFuelEnergy/" },
+  { "domain": "youtube", "url": "https://www.youtube.com/user/GFuelEnergy" },
+  { "domain": "tiktok", "url":"https://www.tiktok.com/@gfuelenergy" },
+  { "domain": "discord", "url": "https://discord.gg/gfuel" },
+  { "domain" : "reddit",  "url": "https://www.reddit.com/r/GFUEL/"}
+]
 // Routes below=========================================================================================================================================
 
 
 // home page aka products
 app.get(`/`, (req, res) => {
-    res.render(`home.ejs`, {products})
+    res.render(`home.ejs`, {products , socials})
 })
 
 // past work
 app.get(`/pastwork`, (req, res) => {
     res.render(`pastwork.ejs`, {
-      gfuelEvents
+      gfuelEvents,
+      socials
     })
 
 })
@@ -168,7 +179,8 @@ app.get(`/pastwork`, (req, res) => {
 app.get(`/companyhistory`, (req, res) => {
     res.render(`history.ejs`, {
       staff,
-      history
+      history,
+      socials
     })
 })
 
@@ -187,7 +199,7 @@ const groupedStaff = staff.reduce((accumulator, item) => {
 app.get(`/staff`, (req, res) => {
 
   //create a variable where i can group them by roles
-  return res.render('staff.ejs', { groupedStaff })
+  return res.render('staff.ejs', { groupedStaff, socials })
 })
 //staff/<job title>/array index
 app.get(`/staff/:jobTitle/:arrayIndex`, (req, res) => {
@@ -212,7 +224,7 @@ app.get(`/staff/:jobTitle/:arrayIndex`, (req, res) => {
 
 
   //create a variable where i can group them by roles
-  return res.render('staffByJTAndIndex.ejs', { selectedPerson, jobTitle })
+  return res.render('staffByJTAndIndex.ejs', { selectedPerson, jobTitle, socials })
 })
 
 
@@ -220,7 +232,8 @@ app.get(`/staff/:jobTitle/:arrayIndex`, (req, res) => {
 app.get(`/contact`, (req, res) => {
     res.render(`contact.ejs`, {
       staff,
-      history
+      history,
+      socials
     })
 })
 

@@ -1,7 +1,10 @@
 
 <footer>
-    <%- include('./partials/nav') %> <!-- add nav bar WOO -->
-    <a href="https://twitter.com/GFUELenergy">Twitter</a>
+    <div class="footer_container">
+        <% socials.forEach(social => { %>
+            <a id="social_url" href="<%= social.url %>"><span id="social_item"><%= social.domain %></span></a>
+           <% }) %>
+    </div>
 </footer>
 
 <!-- 

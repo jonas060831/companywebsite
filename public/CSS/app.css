@@ -76,3 +76,22 @@ nav a:link, a:visited, a:active {
     font-weight: bolder;
     font-family: 'Slackey';
 }
+
+.footer_container {
+    background-color: black;
+    color: white;
+    position: relative;
+    width: 100vw;
+    height: 5rem;
+    bottom: 0;
+    padding: 1rem;
+    font-family: Arial;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#social_url {
+    color: white;
+}
