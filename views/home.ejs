@@ -8,11 +8,15 @@
 </head>
 <body>
     <%- include('./partials/nav') %> <!-- add nav bar -->
-    <h1>Best Seller</h1>
+    
+    <%- include('./partials/favorite', {newFavorite}) %>
+
+
     <h1>Products</h1>
         <ul>
             <% products.forEach(product => { %>
                 <li>
+                    <img src="<%= product.imageUrl%>" alt="" width="300" height="auto"/>
                     <strong><%= product.flavor %>: <%= product.price %></strong>
                     <ul>Description: <%= product.description %></ul>
                     <ul>Rating: <%= product.rating %>/5 stars</ul>

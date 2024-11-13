@@ -28,6 +28,7 @@ detials
 
 :root {
     --primary-color : #ffd490;
+    --link-hover-color: rgb(207, 3, 207);
 }
 
 * {
@@ -38,9 +39,10 @@ detials
 
 .nav_container {
     height: 5rem;
-    background-color: var(--primary-color);
+    background-color: black;
     width: 100vw;
     padding: 0rem 1rem;
+    
 }
 nav {
     font-family: Arial;
@@ -54,12 +56,14 @@ nav {
     max-width: 900px;
 }
 
-nav a {
+nav a:link, a:visited, a:active {
     text-decoration: none;
+    color: white;
 }
 
-nav a:link, a:visited, a:active {
-    color: black;
+nav a:hover{
+    text-decoration: none;
+    color: var(--link-hover-color);
 }
 
 
@@ -82,7 +86,7 @@ nav a:link, a:visited, a:active {
     color: white;
     position: relative;
     width: 100vw;
-    height: 5rem;
+    height: 15rem;
     bottom: 0;
     padding: 1rem;
     font-family: Arial;
@@ -94,4 +98,68 @@ nav a:link, a:visited, a:active {
 
 #social_url {
     color: white;
+    text-decoration: none;
+}
+
+#social_url:hover {
+    color:var(--link-hover-color)
+}
+
+.favorite_container {
+    height: 80vh;
+    color: white;
+    font-family: 'Slackey';
+    background: url('/src/newfavoritebackground.png');
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-shadow: 2px 3px 4px  purple;
+    display: flex;
+    
+}
+
+.favorite_details_container {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 1rem;    
+}
+
+
+/* desktop only */
+@media (min-width: 821px) and (max-width: 5000px) {
+    .favorite_container {
+        padding-top: 5%;
+        padding-left: 2rem;
+    }
+    .favorite_details_container {
+        font-size: 110%;
+        width: 50%;
+    }
+}
+/* tablet only */
+@media (min-width: 481px) and (max-width: 820px) {
+    .favorite_container {
+        padding-top: 3rem;
+        padding-left: 2rem;
+    }
+    .favorite_details_container {
+        font-size:70%;
+        gap: 0.3rem; 
+        width: 60%;
+    }
+
+}
+
+/* mobile only */
+@media (min-width: 320px) and (max-width: 480px) {
+    .favorite_container {
+        padding-top: 1rem;
+        padding-left: 2rem;
+    }
+    .favorite_details_container {
+        font-size:65%;
+        gap: 0.3rem; 
+        width: 60%;
+    }
 }

@@ -57,36 +57,111 @@ const staff = [
     }
   ]
   
+// const products = [
+//     {
+//       name: "GFuel Energy Formula",
+//       flavor: "Bahama Mama",
+//       description: "A tropical, island-inspired flavor featuring pineapple, orange, and coconut. Bahama Mama is one of GFuel's most popular flavors for a refreshing, energizing boost.",
+//       price: "$39.99",
+//       rating: 4.7 // Out of 5 stars
+//     },
+//     {
+//       name: "GFuel Energy Formula",
+//       flavor: "Blue Ice",
+//       description: "Blue Ice offers a sweet and tangy blue raspberry flavor. It's a favorite among GFuel users for its balance of fruity sweetness and refreshment.",
+//       price: "$39.99",
+//       rating: 4.6 // Out of 5 stars
+//     },
+//     {
+//       name: "GFuel Energy Formula",
+//       flavor: "Battle Juice",
+//       description: "Battle Juice is a delicious, fruity blend with a mix of tropical flavors like pineapple and mango. It's known for delivering a punch of energy and taste.",
+//       price: "$39.99",
+//       rating: 4.8 // Out of 5 stars
+//     },
+//     {
+//       name: "GFuel Energy Formula",
+//       flavor: "Fazeberry",
+//       description: "Fazeberry combines a mix of berries, including strawberry, raspberry, and blueberry. It's one of the most iconic flavors, beloved by fans of the FaZe Clan.",
+//       price: "$39.99",
+//       rating: 4.9 // Out of 5 stars
+//     }
+//   ];
+
+
 const products = [
-    {
-      name: "GFuel Energy Formula",
-      flavor: "Bahama Mama",
-      description: "A tropical, island-inspired flavor featuring pineapple, orange, and coconut. Bahama Mama is one of GFuel's most popular flavors for a refreshing, energizing boost.",
-      price: "$39.99",
-      rating: 4.7 // Out of 5 stars
-    },
-    {
-      name: "GFuel Energy Formula",
-      flavor: "Blue Ice",
-      description: "Blue Ice offers a sweet and tangy blue raspberry flavor. It's a favorite among GFuel users for its balance of fruity sweetness and refreshment.",
-      price: "$39.99",
-      rating: 4.6 // Out of 5 stars
-    },
-    {
-      name: "GFuel Energy Formula",
-      flavor: "Battle Juice",
-      description: "Battle Juice is a delicious, fruity blend with a mix of tropical flavors like pineapple and mango. It's known for delivering a punch of energy and taste.",
-      price: "$39.99",
-      rating: 4.8 // Out of 5 stars
-    },
-    {
-      name: "GFuel Energy Formula",
-      flavor: "Fazeberry",
-      description: "Fazeberry combines a mix of berries, including strawberry, raspberry, and blueberry. It's one of the most iconic flavors, beloved by fans of the FaZe Clan.",
-      price: "$39.99",
-      rating: 4.9 // Out of 5 stars
-    }
-  ];
+  {
+    imageUrl: '/src/products/bahama mama.png',
+    name: "GFuel Energy Formula",
+    flavor: "Bahama Mama",
+    description: "A tropical, island-inspired flavor featuring pineapple, orange, and coconut. Bahama Mama is one of GFuel's most popular flavors for a refreshing, energizing boost.",
+    price: "$39.99",
+    rating: 4.7 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/blue ice.png',
+    name: "GFuel Energy Formula",
+    flavor: "Blue Ice",
+    description: "Blue Ice offers a sweet and tangy blue raspberry flavor. It's a favorite among GFuel users for its balance of fruity sweetness and refreshment.",
+    price: "$39.99",
+    rating: 4.6 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/battle juice.png',
+    name: "GFuel Energy Formula",
+    flavor: "Battle Juice",
+    description: "Battle Juice is a delicious, fruity blend with a mix of tropical flavors like pineapple and mango. It's known for delivering a punch of energy and taste.",
+    price: "$39.99",
+    rating: 4.8 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/fazeberry.png',
+    name: "GFuel Energy Formula",
+    flavor: "Fazeberry",
+    description: "Fazeberry combines a mix of berries, including strawberry, raspberry, and blueberry. It's one of the most iconic flavors, beloved by fans of the FaZe Clan.",
+    price: "$39.99",
+    rating: 4.9 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/rainbow sherbet.png',
+    name: "GFuel Energy Formula",
+    flavor: "Rainbow Sherbet",
+    description: "Inspired by classic rainbow sherbet ice cream, this flavor delivers a smooth, creamy taste with a hint of fruity sweetness.",
+    price: "$39.99",
+    rating: 4.9 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/watermelon.png',
+    name: "GFuel Energy Formula",
+    flavor: "Watermelon",
+    description: "A light and refreshing watermelon flavor that's sweet and smooth. Ideal for fans of a juicy, summery taste.",
+    price: "$39.99",
+    rating: 4.7 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/sour blue chug rug.png',
+    name: "GFuel Energy Formula",
+    flavor: "Sour Blue Chug Rug",
+    description: "A unique blue raspberry flavor with a sour twist. This flavor was inspired by YouTuber FaZe Rug and has become a fan favorite.",
+    price: "$19.99",
+    rating: 4.6 // Out of 5 stars
+  },
+  {
+    imageUrl: '/src/products/peach rings.png',
+    name: "GFuel Energy Formula",
+    flavor: "Peach Rings",
+    description: "A delicious peach candy flavor that brings back memories of classic peach ring gummies. Sweet, nostalgic, and energizing.",
+    price: "$39.99",
+    rating: 5.00 // Out of 5 stars
+  },
+  {
+    name: "GFuel Energy Formula",
+    flavor: "Tropical Rain",
+    description: "A mix of tropical fruits like kiwi, pineapple, and berry flavors for a refreshing and exotic taste experience.",
+    price: "$19.99",
+    rating: 4.8 // Out of 5 stars
+  }
+];
 
 
   const history = `
@@ -163,7 +238,11 @@ const socials = [
 
 // home page aka products
 app.get(`/`, (req, res) => {
-    res.render(`home.ejs`, {products , socials})
+
+    //get pich ring using name and add it to the object newFavorite
+    const newFavorite = products.find( product => product.flavor === 'Peach Rings')
+
+    res.render(`home.ejs`, {products , socials, newFavorite})
 })
 
 // past work
@@ -184,7 +263,7 @@ app.get(`/companyhistory`, (req, res) => {
     })
 })
 
-
+//create a variable where i can group them by roles
 const groupedStaff = staff.reduce((accumulator, item) => {
   const role = item.jobTitle
 
@@ -214,16 +293,16 @@ app.get(`/staff/:jobTitle/:arrayIndex`, (req, res) => {
   
   ////show this page if the jobTitle is not found as well as a non existent index
   //jobTitleCode does not exist or if the index in groupedStaff does not exist
-  if(jobTitleCode === undefined) return res.render('staffnotfound.ejs')
+  if(jobTitleCode === undefined) return res.render('staffnotfound.ejs', { socials })
   //check if the req.query.arrayIndex exist in our groupedStaff Object
   const positionIndexInArray = groupedStaff[jobTitleCode][arrayIndex]
-  if(positionIndexInArray === undefined) return res.render('staffnotfound.ejs')
+  if(positionIndexInArray === undefined) return res.render('staffnotfound.ejs', { socials })
 
   const selectedPerson = groupedStaff[jobTitle][parseInt(arrayIndex)]
 
 
 
-  //create a variable where i can group them by roles
+  
   return res.render('staffByJTAndIndex.ejs', { selectedPerson, jobTitle, socials })
 })
 

@@ -8,9 +8,11 @@
 </head>
 <body>
     <%- include('./partials/nav') %> <!-- add nav bar -->
-    <div style="height: 90vh; width: 100vw; display: flex; align-items: center;justify-content: center; font-family: Slackey;">
+    <div style="height: 90vh; width: 100vw; display: flex; flex-direction: column;align-items: center;justify-content: center; font-family: Slackey;">
+        
+        <img src="/src/ghostface_razor.gif" />
         <h3>Sorry we cant find this person in the database...</h3>
     </div>
-    
+    <%- include('./partials/footer') %>
 </body>
 </html>
