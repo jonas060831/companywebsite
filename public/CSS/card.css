@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Slackey&display=swap');
 body {
     font-family: 'Slackey';
+    text-align: center;
 }
 ul {
     display: flex;
@@ -8,6 +9,16 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 3rem;
+}
+
+ul > a {
+    list-style: none;
+    text-decoration: none;
+    width: 50vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ul > li {
@@ -19,8 +30,13 @@ ul > li {
     max-width: 900px;
 }
 
-ul > li:hover {
+ul > a:hover {
     background-color: rgba(255, 157, 0, 0.437);
+}
+
+ul > li > a {
+    text-decoration: none;
+    color: black;
 }
 
 .user_details {
@@ -37,5 +53,19 @@ h1 {
 
 img {
     border-radius: 100vw;
-    border: 0.2rem solid rgb(0, 255, 179);
+    border: 0.2rem solid var(--primary-color);
+}
+
+.detailed {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    margin: 0px auto;
+    margin-top: 3rem;
+    line-height: 3rem;
+    text-align: left;
+}
+
+.label_indicator {
+    color: gray;
 }

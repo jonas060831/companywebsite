@@ -32,7 +32,7 @@ const staff = [
     },
     
     {
-      image: "https://i.pravatar.cc/150?img=04",
+      image: "https://i.pravatar.cc/150?img=05",
       name: "Jane Smith",
       jobTitle: "Product Manager",
       email: "janesmith@example.com",
@@ -42,7 +42,7 @@ const staff = [
     {
       image: "https://i.pravatar.cc/150?img=03",
       name: "Andrew Johnson",
-      jobTitle: "UX/UI Designer",
+      jobTitle: "UX UI Designer",
       email: "emilyj@example.com",
       phoneNumber: "345-678-9012",
       bio: "Emily is a creative UX/UI designer who focuses on user-centric design. She believes in creating intuitive and visually appealing interfaces that enhance user experience."
@@ -173,21 +173,48 @@ app.get(`/companyhistory`, (req, res) => {
 })
 
 
+const groupedStaff = staff.reduce((accumulator, item) => {
+  const role = item.jobTitle
+
+  if(!accumulator[role]) accumulator[role] = []
+
+  accumulator[role].push(item)
+
+  return accumulator
+}, {})
+
 // staff page
 app.get(`/staff`, (req, res) => {
 
-  const groupedStaff = staff.reduce((accumulator, item) => {
-    const role = item.jobTitle
-
-    if(!accumulator[role]) accumulator[role] = []
-
-    accumulator[role].push(item)
-
-    return accumulator
-  }, {})
   //create a variable where i can group them by roles
   return res.render('staff.ejs', { groupedStaff })
 })
+//staff/<job title>/array index
+app.get(`/staff/:jobTitle/:arrayIndex`, (req, res) => {
+
+  const { jobTitle, arrayIndex } = req.params
+
+  //get all the job titles in the object
+  const jobTitles = Object.keys(groupedStaff)
+
+  //check if the req.query.jobTitle is in the jobTitles array
+  const jobTitleCode = jobTitles.find(jt => jt === jobTitle)
+  
+  ////show this page if the jobTitle is not found as well as a non existent index
+  //jobTitleCode does not exist or if the index in groupedStaff does not exist
+  if(jobTitleCode === undefined) return res.render('staffnotfound.ejs')
+  //check if the req.query.arrayIndex exist in our groupedStaff Object
+  const positionIndexInArray = groupedStaff[jobTitleCode][arrayIndex]
+  if(positionIndexInArray === undefined) return res.render('staffnotfound.ejs')
+
+  const selectedPerson = groupedStaff[jobTitle][parseInt(arrayIndex)]
+
+
+
+  //create a variable where i can group them by roles
+  return res.render('staffByJTAndIndex.ejs', { selectedPerson, jobTitle })
+})
+
 
 // contact
 app.get(`/contact`, (req, res) => {
